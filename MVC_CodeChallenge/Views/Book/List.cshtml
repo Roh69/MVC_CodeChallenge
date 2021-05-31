@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MVC_CodeChallenge.Models.BookModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bookId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author.authorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author.address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.bookId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.genre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author.authorId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author.address)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.bookId }) |
+        @Html.ActionLink("Details", "Details", new { id=item.bookId }) |
+        @Html.ActionLink("Delete", "Delete", new {  id=item.bookId })
+    </td>
+</tr>
+}
+
+</table>
